@@ -4,6 +4,7 @@
 dictionaries and sets.
 """
 
+
 def count_words(phrase):
     """Count unique words in a string.
 
@@ -29,7 +30,15 @@ def count_words(phrase):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
 
-    return {}
+    word_dict = {}
+
+    for word in phrase.split(' '):
+        if word in word_dict:
+            word_dict[word] += 1
+        else:
+            word_dict[word] = 1
+
+    return word_dict
 
 
 def print_melon_at_price(price):
@@ -58,7 +67,16 @@ def print_melon_at_price(price):
         None found
     """
 
-    return
+    melon_dict = {2.50: ['Honeydew', 'Cantaloupe'], 2.95: ['Watermelon'],
+                  3.25: ['Crenshaw', 'Musk'], 14.25: ['Christmas']}
+
+    if price in melon_dict:
+        for melon in sorted(melon_dict[price]):
+            print(melon)
+    else:
+        print("None found")
+
+    return None
 
 
 def translate_to_pirate_talk(phrase):
@@ -100,7 +118,21 @@ def translate_to_pirate_talk(phrase):
         'me swabbie be not a man!'
     """
 
-    return ""
+    pirate_dict = {'sir': 'matey', 'hotel': 'fleabag inn', 'man': 'matey',
+                   'professor': 'foul blaggart', 'student': 'swabbie',
+                   'restaurant': 'galley', 'your': 'yer', 'excuse': 'arr',
+                   'students': 'swabbies', 'are': 'be', 'restroom': 'head',
+                   'my': 'me', 'is': 'be'}
+    
+    piratey_phrase = ""
+
+    for word in phrase.split(' '):
+        if word in pirate_dict:
+            piratey_phrase += pirate_dict[word] + " "
+        else:
+            piratey_phrase += word + " " 
+
+    return piratey_phrase[:-1]
 
 
 def kids_game(names):
