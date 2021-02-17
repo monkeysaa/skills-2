@@ -181,4 +181,28 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
 
-    return []
+    names_dict = {}
+    results = []
+
+    # create dictionary based on parameter names using first-letters as keys
+    # and a list of words starting with that letter as values
+    for name in names:
+        if name[0] in names_dict:
+            names_dict[name[0]].append(name)
+
+        else:
+            names_dict[name[0]] = [name]
+    
+    # initialize to the first letter of first word to cue while loop
+    word = names[0][0]  
+
+    while word[-1] in names_dict:
+        word = names_dict[word[-1]].pop(0)
+        results.append(word)
+        
+        # if list of values is empty, remove from dictionary
+        if names_dict[word[0]] == []:
+            names_dict.pop(word[0])
+        
+
+    return results
