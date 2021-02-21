@@ -32,7 +32,7 @@ def count_words(phrase):
 
     word_dict = {}
 
-    for word in phrase.split(' '):
+    for word in phrase.split():
         if word in word_dict:
             word_dict[word] += 1
         else:
@@ -75,8 +75,6 @@ def print_melon_at_price(price):
             print(melon)
     else:
         print("None found")
-
-    return None
 
 
 def translate_to_pirate_talk(phrase):
@@ -126,7 +124,7 @@ def translate_to_pirate_talk(phrase):
     
     piratey_phrase = ""
 
-    for word in phrase.split(' '):
+    for word in phrase.split():
         if word in pirate_dict:
             piratey_phrase += pirate_dict[word] + " "
         else:

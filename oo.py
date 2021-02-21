@@ -5,9 +5,11 @@
 
 Abstraction allows us to consolidate shared attributes or behaviors into parent
     classes, and to use methods even without knowing quite how they work.
+
 Encapsulation means data is well-contained and lives close to its functionality. 
+
 Polymorphism: selective inheritance allows for interchangeable functionality.
-    This keeps code adaptive, flexible, and dry.
+    This keeps code more flexible and dry.
 
 
 2. What is a class?
@@ -67,6 +69,7 @@ class User:
         self.password = password
     
     def update_password(self, current_password, new_password):
+        """Update user's password if current password is valid."""
 
         if current_password == self.password:
             self.password = new_password
@@ -101,8 +104,7 @@ class Library:
     def create_and_add_book(self, title, author):
         """Instantiate a new Book object and add to the library's book list."""
 
-        new_book = Book(title, author)
-        self.books.append(new_book)
+        self.books.append(Book(title, author))
 
     def find_books_by_author(self, author):
         """Search by author, returning a list of books by that author.
