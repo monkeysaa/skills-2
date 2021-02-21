@@ -66,10 +66,10 @@ class User:
     
     def update_password(self, current_password, new_password):
 
-        if current_password != self.password:
-            print('Invalid password')
-        else:
+        if current_password == self.password:
             self.password = new_password
+        else:
+            print('Invalid password')
 
 
 """4. Build a Library"""
